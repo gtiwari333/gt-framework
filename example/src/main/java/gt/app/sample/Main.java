@@ -1,4 +1,6 @@
-package gt.app;
+package gt.app.sample;
+
+import gt.app.DI;
 
 public class Main {
     static void main() throws Exception {

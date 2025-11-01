@@ -1,4 +1,6 @@
-package gt.app;
+package gt.app.sample;
+
+import gt.app.Component;
 
 @Component
 public class MyService {

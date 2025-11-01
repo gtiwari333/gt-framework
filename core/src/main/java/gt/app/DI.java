@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -14,7 +15,7 @@ import java.util.Set;
 public class DI {
 
     private final Map<Class<?>, Object> instances = new HashMap<>();
-    String basePackage;
+    private final String basePackage;
 
     public DI(String basePackage) {
         this.basePackage = basePackage;
@@ -42,7 +43,7 @@ public class DI {
         if (stream == null) {
             return annotatedClasses; // Package not found or empty
         }
-        BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(stream, StandardCharsets.UTF_8));
         reader.lines()
             .filter(line -> line.endsWith(".class"))
             .map(line -> packageName + "." + line.substring(0, line.lastIndexOf('.')))
