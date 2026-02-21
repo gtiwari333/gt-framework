@@ -10,6 +10,7 @@
 
     <modules>
         <module>core</module>
+        <module>web</module>
         <module>example</module>
     </modules>
 
@@ -22,9 +23,8 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <lombok.version>1.18.42</lombok.version>
-        <spock.version>2.4-M6-groovy-4.0</spock.version>
+        <spock.version>2.4-groovy-5.0</spock.version>
         <slf4j.version>2.0.17</slf4j.version>
-        <groovy.version>4.0.29</groovy.version>
 
         <!-- test properties -->
         <project.testresult.directory>${project.build.directory}/test-results</project.testresult.directory>
@@ -48,7 +48,7 @@
         <checkstyle.plugin.version>3.6.0</checkstyle.plugin.version>
         <puppycrawl.checkstyle.version>12.1.1</puppycrawl.checkstyle.version>
         <google.error-prone.compiler.version>2.43.0</google.error-prone.compiler.version>
-        <groovy.maven.plugin.version>4.2.1</groovy.maven.plugin.version>
+        <groovy.maven.plugin.version>4.3.1</groovy.maven.plugin.version>
         <modernizer-maven-plugin.version>3.2.0</modernizer-maven-plugin.version>
         <spotbugs.plugin.version>4.9.8.1</spotbugs.plugin.version>
         <findsecbugs-plugin.version>1.14.0</findsecbugs-plugin.version>
@@ -80,10 +80,10 @@
                 <version>${spock.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.groovy</groupId>
-                <artifactId>groovy</artifactId>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>6.0.3</version>
                 <scope>test</scope>
-                <version>${groovy.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
