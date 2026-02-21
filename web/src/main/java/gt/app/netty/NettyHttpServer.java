@@ -1,4 +1,4 @@
-package gt.app;
+package gt.app.netty;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;

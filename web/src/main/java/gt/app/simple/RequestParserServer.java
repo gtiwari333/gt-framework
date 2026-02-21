@@ -1,4 +1,4 @@
-package gt.app;
+package gt.app.simple;
 
 import java.io.*;
 import java.net.ServerSocket;
