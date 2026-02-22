@@ -9,12 +9,12 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.http.*;
 import io.netty.handler.stream.ChunkedWriteHandler;
-import io.netty.util.CharsetUtil;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.nio.charset.StandardCharsets;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.regex.Pattern;
@@ -211,37 +211,6 @@ public class NettyHttpServerFramework {
                 future.addListener(ChannelFutureListener.CLOSE);
             }
         }
-
-//        private void sendStreamingResponse(ChannelHandlerContext ctx, StreamingResponse response) throws Exception {
-//            // Create response
-//            io.netty.handler.codec.http.DefaultHttpResponse httpResponse =
-//                new io.netty.handler.codec.http.DefaultHttpResponse(
-//                    HttpVersion.HTTP_1_1,
-//                    HttpResponseStatus.valueOf(response.statusCode())
-//                );
-//
-//            // Set headers
-//            response.headers().forEach((name, value) ->
-//                httpResponse.headers().set(name, value)
-//            );
-//
-//            // Set content length
-//            httpResponse.headers().setLong(
-//                HttpHeaderNames.CONTENT_LENGTH,
-//                response.fileSize()
-//            );
-//
-//            httpResponse.headers().set(HttpHeaderNames.CONNECTION, HttpHeaderValues.KEEP_ALIVE);
-//
-//            // Write headers
-//            ctx.write(httpResponse);
-//
-//            // Write file using zero-copy
-//            FileInputStream fis = new FileInputStream(response.file());
-//            ctx.write(new io.netty.handler.stream.ChunkedFile(fis, 8192));
-//            ctx.writeAndFlush(LastHttpContent.EMPTY_LAST_CONTENT)
-//                .addListener(ChannelFutureListener.CLOSE);
-//        }
 
         private void sendErrorResponse(ChannelHandlerContext ctx, int statusCode, String message) {
             byte[] body = message.getBytes(StandardCharsets.UTF_8);
